@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Request an appointment with a WanderLux travel consultant to plan your next holiday.">
+
+    <title>WanderLux | Appointment Request</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        <h1>WanderLux</h1>
+        <p>Explore More. Travel Better.</p>
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="calculator.html">Trip Calculator</a>
+        <a class="active" href="appointment.html">Appointment</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+</header>
+
+
+<main>
+
+<section class="page-banner">
+
+    <h2>Request an Appointment</h2>
+
+    <p>
+        Speak with one of our travel consultants about your next holiday.
+    </p>
+
+</section>
+
+
+<section class="form-section">
+
+<form id="appointmentForm" autocomplete="on">
+
+    <!-- NAME -->
+
+    <label for="appointmentName">
+        Name
+    </label>
+
+    <input
+        type="text"
+        id="appointmentName"
+        name="name"
+        autocomplete="name"
+        required
+    >
+
+
+    <!-- EMAIL -->
+
+    <label for="appointmentEmail">
+        Email
+    </label>
+
+    <input
+        type="email"
+        id="appointmentEmail"
+        name="email"
+        autocomplete="email"
+        required
+    >
+
+
+    <!-- PHONE -->
+
+    <label for="appointmentPhone">
+        Phone
+    </label>
+
+    <input
+        type="tel"
+        id="appointmentPhone"
+        name="phone"
+        autocomplete="tel"
+        required
+    >
+
+
+    <!-- DATE -->
+
+    <label for="appointmentDate">
+        Preferred Date
+    </label>
+
+    <input
+        type="date"
+        id="appointmentDate"
+        name="preferredDate"
+        required
+    >
+
+
+    <!-- MESSAGE -->
+
+    <label for="appointmentMessage">
+        Message
+    </label>
+
+    <textarea
+        id="appointmentMessage"
+        name="message"
+        rows="5"
+        required
+    ></textarea>
+
+
+    <!-- BUTTON -->
+
+    <button
+        type="button"
+        onclick="submitAppointment()">
+
+        Request Appointment
+
+    </button>
+
+</form>
+
+
+<!-- CONFIRMATION MESSAGE APPEARS HERE -->
+
+<p id="appointmentResult"></p>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        &copy; 2026 WanderLux Travel Agency.
+        All rights reserved.
+    </p>
+
+</footer>
+
+
+
+<!-- APPOINTMENT JAVASCRIPT -->
+
+<script>
+
+function submitAppointment() {
+
+    const name =
+        document.getElementById("appointmentName").value.trim();
+
+    const email =
+        document.getElementById("appointmentEmail").value.trim();
+
+    const phone =
+        document.getElementById("appointmentPhone").value.trim();
+
+    const date =
+        document.getElementById("appointmentDate").value;
+
+    const message =
+        document.getElementById("appointmentMessage").value.trim();
+
+    const result =
+        document.getElementById("appointmentResult");
+
+
+    /* CHECK EMPTY FIELDS */
+
+    if (
+        name === "" ||
+        email === "" ||
+        phone === "" ||
+        date === "" ||
+        message === ""
+    ) {
+
+        result.innerHTML =
+            "Please complete all fields before requesting an appointment.";
+
+        return;
+    }
+
+
+    /* CHECK EMAIL */
+
+    if (!email.includes("@") || !email.includes(".")) {
+
+        result.innerHTML =
+            "Please enter a valid email address.";
+
+        return;
+    }
+
+
+    /* SUCCESS MESSAGE */
+
+    result.innerHTML =
+        "<strong>Appointment Request Submitted!</strong>" +
+        "<br><br>" +
+        "Thank you, " + name + "." +
+        "<br>" +
+        "Your preferred appointment date is " + date + "." +
+        "<br>" +
+        "A WanderLux travel consultant will contact you using the details provided.";
+
+}
+
+</script>
+
+
+</body>
+
+</html>

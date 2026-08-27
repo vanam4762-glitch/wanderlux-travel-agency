@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Calculate the estimated cost of your WanderLux holiday.">
+
+    <title>WanderLux | Trip Cost Calculator</title>
+
+    <!-- Keep your existing WanderLux CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+
+<body>
+
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="logo">
+
+            <h1>WanderLux</h1>
+
+            <p>Explore More. Travel Better.</p>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <nav>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="destinations.html">
+                Destinations
+            </a>
+
+            <a href="calculator.html" class="active">
+                Trip Calculator
+            </a>
+
+            <a href="appointment.html">
+                Appointment
+            </a>
+
+            <a href="about.html">
+                About Us
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- MAIN CONTENT -->
+
+    <main>
+
+
+        <!-- PAGE TITLE -->
+
+        <section class="page-banner">
+
+            <h2>Trip Cost Calculator</h2>
+
+            <p>
+                Enter your travel preferences to receive
+                an estimated travel cost.
+            </p>
+
+        </section>
+
+
+
+        <!-- CALCULATOR -->
+
+        <section class="form-section">
+
+
+            <form id="tripForm">
+
+
+                <!-- DESTINATION -->
+
+                <label for="destination">
+                    Destination
+                </label>
+
+                <select id="destination">
+
+                    <option value="">
+                        Select destination
+                    </option>
+
+                    <option value="150">
+                        Bali
+                    </option>
+
+                    <option value="220">
+                        Japan
+                    </option>
+
+                    <option value="120">
+                        Australia
+                    </option>
+
+                </select>
+
+
+
+                <!-- NUMBER OF TRAVELLERS -->
+
+                <label for="travellers">
+                    Number of Travellers
+                </label>
+
+                <input
+                    type="number"
+                    id="travellers"
+                    min="1"
+                >
+
+
+
+                <!-- NUMBER OF DAYS -->
+
+                <label for="days">
+                    Number of Days
+                </label>
+
+                <input
+                    type="number"
+                    id="days"
+                    min="1"
+                >
+
+
+
+                <!-- TRAVEL STYLE -->
+
+                <label for="travelStyle">
+                    Travel Style
+                </label>
+
+                <select id="travelStyle">
+
+                    <option value="">
+                        Select travel style
+                    </option>
+
+                    <option value="0.8">
+                        Budget
+                    </option>
+
+                    <option value="1">
+                        Standard
+                    </option>
+
+                    <option value="1.5">
+                        Luxury
+                    </option>
+
+                </select>
+
+
+
+                <!-- CALCULATE BUTTON -->
+
+                <button
+                    type="button"
+                    onclick="calculateTripCost()"
+                >
+                    Calculate Cost
+                </button>
+
+
+            </form>
+
+
+
+            <!-- RESULT -->
+
+            <div
+                id="calculatorResult"
+                class="result-box"
+            >
+
+                Your estimated trip cost will appear here.
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            &copy; 2026 WanderLux Travel Agency.
+            All rights reserved.
+        </p>
+
+    </footer>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        function calculateTripCost() {
+
+
+            // Read destination
+
+            const destination =
+                document.getElementById("destination");
+
+
+            // Read number of travellers
+
+            const travellers =
+                Number(
+                    document.getElementById("travellers").value
+                );
+
+
+            // Read number of days
+
+            const days =
+                Number(
+                    document.getElementById("days").value
+                );
+
+
+            // Read travel style
+
+            const travelStyle =
+                document.getElementById("travelStyle");
+
+
+            // Find result box
+
+            const result =
+                document.getElementById("calculatorResult");
+
+
+
+            // Check the information
+
+            if (
+                destination.value === "" ||
+                travellers < 1 ||
+                days < 1 ||
+                travelStyle.value === ""
+            ) {
+
+                result.innerHTML =
+                    "Please complete all fields before calculating.";
+
+                return;
+
+            }
+
+
+
+            // Convert destination price to number
+
+            const destinationPrice =
+                Number(destination.value);
+
+
+
+            // Convert travel style to number
+
+            const styleMultiplier =
+                Number(travelStyle.value);
+
+
+
+            // Calculate total price
+
+            const totalCost =
+                destinationPrice *
+                travellers *
+                days *
+                styleMultiplier;
+
+
+
+            // Get destination name
+
+            const destinationName =
+                destination.options[
+                    destination.selectedIndex
+                ].text;
+
+
+
+            // Get travel style name
+
+            const styleName =
+                travelStyle.options[
+                    travelStyle.selectedIndex
+                ].text;
+
+
+
+            // Show the result
+
+            result.innerHTML =
+
+                "<strong>Estimated Trip Cost: $" +
+
+                totalCost.toFixed(2) +
+
+                "</strong>" +
+
+                "<br><br>" +
+
+                "Destination: " +
+                destinationName +
+
+                "<br>" +
+
+                "Number of Travellers: " +
+                travellers +
+
+                "<br>" +
+
+                "Number of Days: " +
+                days +
+
+                "<br>" +
+
+                "Travel Style: " +
+                styleName;
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
