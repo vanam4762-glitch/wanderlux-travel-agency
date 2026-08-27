@@ -1,0 +1,416 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f7fa;
+    color: #222;
+    line-height: 1.6;
+}
+
+
+/* HEADER */
+
+header {
+    background-color: #073b5c;
+    color: white;
+    padding: 20px 5%;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+.logo p {
+    margin: 0 0 15px 0;
+}
+
+
+/* NAVIGATION */
+
+nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 10px;
+    border-radius: 5px;
+}
+
+nav a:hover,
+nav a.active {
+    background-color: #f0a500;
+    color: #111;
+}
+
+
+/* HERO */
+
+.hero {
+    min-height: 500px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 40px;
+
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.45),
+        rgba(0, 0, 0, 0.45)
+    ),
+    url("../images/hero.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    color: white;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero h2 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 20px;
+}
+
+
+/* BUTTON */
+
+.button,
+button {
+    display: inline-block;
+
+    background-color: #f0a500;
+    color: #111;
+
+    border: none;
+
+    padding: 12px 22px;
+
+    border-radius: 6px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    margin-top: 10px;
+}
+
+.button:hover,
+button:hover {
+    background-color: #d99100;
+}
+
+
+/* GENERAL SECTIONS */
+
+.section,
+.form-section,
+.contact-grid {
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 50px 5%;
+}
+
+.page-banner {
+    background-color: #dceef7;
+
+    padding: 50px 5%;
+
+    text-align: center;
+}
+
+.page-banner h2 {
+    font-size: 36px;
+
+    color: #073b5c;
+}
+
+
+/* CARDS */
+
+.card-container {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(230px, 1fr));
+
+    gap: 25px;
+}
+
+.card {
+    background-color: white;
+
+    padding: 25px;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.12);
+
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+}
+
+
+/* CTA */
+
+.cta {
+    text-align: center;
+
+    background-color: #073b5c;
+
+    color: white;
+
+    padding: 50px 20px;
+}
+
+
+/* FORMS */
+
+form {
+    max-width: 650px;
+
+    background-color: white;
+
+    padding: 30px;
+
+    margin: 20px auto;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 3px 15px rgba(0, 0, 0, 0.12);
+}
+
+label {
+    display: block;
+
+    margin-top: 15px;
+
+    margin-bottom: 5px;
+
+    font-weight: bold;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #aaa;
+
+    border-radius: 5px;
+
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+
+/* CALCULATOR RESULT */
+
+.result-box {
+    max-width: 650px;
+
+    margin: 25px auto;
+
+    background-color: #e7f4ea;
+
+    padding: 20px;
+
+    border-left: 5px solid #168039;
+
+    font-size: 18px;
+}
+
+
+/* CONTACT */
+
+.contact-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 40px;
+}
+
+
+/* FOOTER */
+
+footer {
+    background-color: #073b5c;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 20px;
+}
+
+
+/* SCROLL ANIMATION */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(30px);
+
+    transition: all 0.7s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 768px) {
+
+    header {
+        text-align: center;
+    }
+
+    nav {
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 5px;
+    }
+
+    .hero h2 {
+        font-size: 34px;
+    }
+
+    .hero {
+        min-height: 400px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* TABLET DESIGN */
+
+@media (max-width: 1024px) {
+
+    .section,
+    .form-section,
+    .contact-grid {
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+
+    .hero {
+        min-height: 450px;
+        padding: 30px;
+    }
+
+    .hero h2 {
+        font-size: 40px;
+    }
+
+    .card-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+/* SMALL MOBILE DESIGN */
+
+@media (max-width: 480px) {
+
+    body {
+        font-size: 15px;
+    }
+
+    header {
+        padding: 15px;
+    }
+
+    .logo h1 {
+        font-size: 26px;
+    }
+
+    nav a {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero {
+        min-height: 350px;
+        padding: 20px;
+    }
+
+    .hero h2 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .page-banner h2 {
+        font-size: 28px;
+    }
+
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+
+    form {
+        padding: 20px;
+    }
+
+    .button,
+    button {
+        width: 100%;
+        text-align: center;
+    }
+
+}
+/* Destination Images */
+
+.destination-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
